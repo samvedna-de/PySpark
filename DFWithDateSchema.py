@@ -14,6 +14,6 @@ emp_dt_sch=StructType([StructField("Name",StringType(),True),StructField("Design
 emp_dt_df=spark.createDataFrame(emp_dt,emp_dt_sch)
 print("Printing Schema for My DataFrame")
 emp_dt_df.printSchema()
-
+ew_added_col_df=added_col_df.select('loan_id','clnt_id',to_date(final_df.proc_run_dt,'yyyyMMdd').alias('proc_run_dt'),'src_appl_sys_cpnt_id','cre_ts','cre_usr_id')
 print("Displaying DataFrame content")
 emp_dt_df.show()
